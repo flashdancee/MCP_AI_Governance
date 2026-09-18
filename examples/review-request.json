@@ -1,0 +1,26 @@
+{
+  "request_id": "REV-2026-0001",
+  "request_type": "vendor_network_access",
+  "business_purpose": "Permit the fictional HVAC vendor to diagnose two building-automation servers during a time-limited maintenance engagement.",
+  "requester": {
+    "id": "user-1042",
+    "role": "facilities-project-coordinator"
+  },
+  "owner": {
+    "id": "user-2007",
+    "role": "building-automation-service-owner"
+  },
+  "requested_access": {
+    "source": "any",
+    "destination": [
+      "bas-app-01.example.invalid",
+      "bas-app-02.example.invalid"
+    ],
+    "services": [
+      "tcp/443",
+      "tcp/3389"
+    ]
+  },
+  "expires_at": "2026-12-17T22:00:00Z",
+  "change_ticket": "CHG-2026-0421"
+}
