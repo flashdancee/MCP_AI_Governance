@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools==75.8.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-ai-governance"
+version = "0.1.0"
+description = "Security-first reference implementation for governed MCP-assisted reviews."
+requires-python = ">=3.11"
+dependencies = [
+  "jsonschema==4.25.1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.4.2"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools]
+packages = ["orchestrator"]

@@ -1,0 +1,12 @@
+{
+  "policy_id": "vendor-access-baseline",
+  "version": "0.1.0",
+  "requirements": [
+    {"control_id":"NET-VENDOR-SOURCE-001","description":"Vendor source networks must be explicitly constrained."},
+    {"control_id":"IAM-VENDOR-MFA-001","description":"Privileged vendor remote access requires MFA."},
+    {"control_id":"LOG-VENDOR-001","description":"Vendor sessions and firewall activity must be logged."},
+    {"control_id":"GOV-OWNER-001","description":"A service owner is mandatory."},
+    {"control_id":"GOV-EXPIRY-001","description":"Vendor access must expire."},
+    {"control_id":"VULN-VENDOR-001","description":"High-risk vulnerabilities require treatment before approval."}
+  ]
+}

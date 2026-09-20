@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/mcp-ai-governance/audit-event.schema.json",
+  "title": "Governance audit event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id","correlation_id","event_type","occurred_at","actor","outcome","integrity"],
+  "properties": {
+    "event_id": {"type":"string","minLength":1},
+    "correlation_id": {"type":"string","minLength":1},
+    "review_id": {"type":["string","null"]},
+    "event_type": {
+      "enum": ["REVIEW_STATE_CHANGE","TOOL_AUTHORIZATION","TOOL_CALL","TOOL_RESULT","POLICY_RESULT","MODEL_ANALYSIS","HUMAN_DECISION","INTEGRITY_FAILURE","SECURITY_EVENT"]
+    },
+    "occurred_at": {"type":"string","format":"date-time"},
+    "actor": {
+      "type":"object","additionalProperties":false,
+      "required":["type","id"],
+      "properties":{
+        "type":{"enum":["human","orchestrator","model","mcp_server","policy_engine"]},
+        "id":{"type":"string","minLength":1}
+      }
+    },
+    "tool": {
+      "type":["object","null"],"additionalProperties":false,
+      "properties":{
+        "name":{"type":"string"},
+        "server":{"type":"string"},
+        "arguments_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+        "result_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+      }
+    },
+    "outcome":{"enum":["ALLOW","DENY","PASS","FAIL","SUCCESS","ERROR","RECORDED"]},
+    "reason":{"type":["string","null"]},
+    "metadata":{"type":"object"},
+    "integrity":{
+      "type":"object","additionalProperties":false,
+      "required":["event_sha256"],
+      "properties":{
+        "previous_event_sha256":{"type":["string","null"],"pattern":"^[a-f0-9]{64}$"},
+        "event_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

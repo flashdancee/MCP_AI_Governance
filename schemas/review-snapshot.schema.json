@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/mcp-ai-governance/review-snapshot.schema.json",
+  "title": "Immutable review snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["snapshot_id","review_id","created_at","request_sha256","evidence","policy","tool_registry","runtime","snapshot_sha256"],
+  "properties": {
+    "snapshot_id":{"type":"string","minLength":1},
+    "review_id":{"type":"string","minLength":1},
+    "created_at":{"type":"string","format":"date-time"},
+    "request_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "evidence":{
+      "type":"array","items":{
+        "type":"object","additionalProperties":false,
+        "required":["id","sha256"],
+        "properties":{
+          "id":{"type":"string","minLength":1},
+          "sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "policy":{
+      "type":"object","additionalProperties":false,
+      "required":["version","sha256"],
+      "properties":{
+        "version":{"type":"string","minLength":1},
+        "sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+      }
+    },
+    "tool_registry":{
+      "type":"object","additionalProperties":false,
+      "required":["version","sha256"],
+      "properties":{
+        "version":{"type":"string","minLength":1},
+        "sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+      }
+    },
+    "runtime":{
+      "type":"object","additionalProperties":false,
+      "required":["orchestrator_version"],
+      "properties":{
+        "orchestrator_version":{"type":"string","minLength":1},
+        "model":{"type":["string","null"]},
+        "model_sha256":{"type":["string","null"],"pattern":"^[a-f0-9]{64}$"},
+        "prompt_version":{"type":["string","null"]}
+      }
+    },
+    "snapshot_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "mfa_confirmed": false,
+  "logging_enabled": false,
+  "unmitigated_high_risk_assets": [
+    "bas-app-02.example.invalid"
+  ]
+}
