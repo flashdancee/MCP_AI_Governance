@@ -2,7 +2,7 @@
 
 Security-first reference architecture for using a local large language model to assist infrastructure, cybersecurity, and governance reviews through Model Context Protocol (MCP) tools.
 
-> **Project status:** architecture and governance design. Implementation begins with a read-only firewall and vendor-access review workflow.
+> **Project status:** Phase 1 implementation. The deterministic governance foundation, review state machine, audit-event contract, and Scenario 1 fixtures are now implemented on the MVP branch.
 
 ## Why this project exists
 
@@ -132,7 +132,7 @@ tests/
 evaluations/
 ```
 
-## Planned technology choices
+## Current implementation\n\nThe first executable slice intentionally works without an LLM. `orchestrator.policy` evaluates the initial vendor-access controls, `ReviewStateMachine` constrains lifecycle transitions, and the audit/review snapshot schemas define the integrity contracts that later MCP services and the dashboard will consume.\n\nScenario 1 currently demonstrates deterministic failure of unconstrained vendor source access, missing MFA, missing logging, and an untreated high-risk destination vulnerability while separately passing owner and expiry checks.\n\nRun the validation suite with:\n\n```bash\npip install -e \".[dev]\"\npytest -q\n```\n\n## Planned technology choices
 
 - **Inference:** Ollama-hosted local model behind a model-neutral adapter
 - **Protocol:** current MCP specification and official SDK
