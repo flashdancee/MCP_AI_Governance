@@ -13,7 +13,9 @@
 
 **Exit condition:** architecture decisions, schemas, threat model, and security acceptance criteria are reviewed before tool code is written.
 
-## Phase 1 — Read-only network review MVP\n\n**In progress:** the deterministic policy engine, review state machine, audit-event schema, review-snapshot schema, Scenario 1 control context, and unit tests are implemented. The next vertical-slice step is the read-only Network MCP service and evidence normalization.
+## Phase 1 — Read-only network review MVP
+
+**In progress:** the deterministic policy engine, review state machine, audit-event schema, review-snapshot schema, Scenario 1 control context, and unit tests are implemented. The next vertical-slice step is the read-only Network MCP service and evidence normalization.
 
 - [ ] Build a synthetic network containing user, server, management, vendor, and BAS zones.
 - [ ] Implement a read-only Network MCP server.
