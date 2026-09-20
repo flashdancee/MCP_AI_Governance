@@ -8,17 +8,17 @@
 - [x] Create request and result schemas.
 - [ ] Select the official MCP SDK version and pin dependencies.
 - [ ] Record model-selection criteria and hardware constraints.
-- [ ] Define an audit-event schema and integrity strategy.
+- [x] Define an audit-event schema and integrity strategy.
 - [ ] Create repository secret scanning and dependency-update policy.
 
 **Exit condition:** architecture decisions, schemas, threat model, and security acceptance criteria are reviewed before tool code is written.
 
-## Phase 1 — Read-only network review MVP
+## Phase 1 — Read-only network review MVP\n\n**In progress:** the deterministic policy engine, review state machine, audit-event schema, review-snapshot schema, Scenario 1 control context, and unit tests are implemented. The next vertical-slice step is the read-only Network MCP service and evidence normalization.
 
 - [ ] Build a synthetic network containing user, server, management, vendor, and BAS zones.
 - [ ] Implement a read-only Network MCP server.
 - [ ] Implement a read-only Governance MCP server.
-- [ ] Create deterministic firewall-policy checks.
+- [x] Create deterministic firewall-policy checks.
 - [ ] Add a model-neutral local inference adapter.
 - [ ] Produce a structured review from the supplied JSON request.
 - [ ] Add evidence identifiers and citations.
